@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #FAF5EA;
+    color: #2B241F;
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-right 35s linear infinite;
+  will-change: transform;
+}
+
+/* Synchronized suave pulse animations for mockup and CTA */
+@keyframes soft-pulse-mockup {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+.animate-soft-pulse-mockup {
+  animation: soft-pulse-mockup 2.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes soft-pulse-cta {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 6px -1px rgba(42, 157, 104, 0.25), 0 2px 4px -2px rgba(42, 157, 104, 0.2);
+  }
+  50% {
+    transform: scale(1.035);
+    box-shadow: 0 12px 24px -3px rgba(42, 157, 104, 0.4), 0 6px 10px -4px rgba(42, 157, 104, 0.25);
+  }
+}
+
+.animate-soft-pulse-cta {
+  animation: soft-pulse-cta 2.8s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+/* Float animation for the badge */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Infinite continuous slow marquee for testimonials */
+@keyframes marquee-testimonials {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-testimonials {
+  display: flex;
+  width: max-content;
+  animation: marquee-testimonials 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-testimonials:hover,
+.animate-marquee-testimonials:active {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-right,
+  .animate-marquee-testimonials,
+  .animate-float-gentle,
+  .animate-soft-pulse-mockup,
+  .animate-soft-pulse-cta {
+    animation: none;
+  }
+}
